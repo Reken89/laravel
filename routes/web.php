@@ -17,10 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+#Add route
 Route::get('/about', function () {
     return view('about');
 });
 
+#Add route
 Route::get('/contact', function () {
     return view('contact');
 });
