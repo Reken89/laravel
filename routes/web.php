@@ -25,6 +25,10 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');;
 
+Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');;
+
+Route::get('/news/categories/{id}', [\App\Http\Controllers\NewsController::class, 'categories'])->name('news');;
+
 #Add route
 Route::get('/about', function () {
     return view('about');

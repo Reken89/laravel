@@ -6,8 +6,8 @@
  </head>
  <body>
      <p>Страница категорий новостей</p>
-  <p><a href="{{ route('home')}}">Спорт</a></p>
-  <p><a href="{{ route('home')}}">Наука</a></p>
-  <p><a href="{{ route('home')}}">Техника</a></p>
+  <p><a href="{{ route('news', 'sport')}}">Спорт</a></p>
+  <p><a href="{{ route('news', 'science')}}">Наука</a></p>
+  <p><a href="{{ route('news', 'technics')}}">Техника</a></p>
  </body>
 </html>
