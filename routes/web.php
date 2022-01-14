@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+ 
+ */
+
+# Роут в контролллер
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');;
+
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');;
 
 #Add route
 Route::get('/about', function () {
