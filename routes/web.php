@@ -20,15 +20,25 @@ Route::get('/', function () {
  
  */
 
-# Роут в контролллер
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');;
+# Роут в контролллер (страница приветствия)
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');;
+# Роут в контролллер (страница выбора категорий новостей)
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');
 
-Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');;
+# Роут в контролллер (страница добавления новостей)
+Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
 
-Route::get('/news/categories/{id}', [\App\Http\Controllers\NewsController::class, 'categories'])->name('news');;
+# Роут в контролллер (страница выбранной категории новостей)
+Route::get('/news/categories/{id}', [\App\Http\Controllers\NewsController::class, 'categories'])->name('news');
 
+# Роут в контролллер (страница выбранной новости)
+Route::get('/news/categories/one_news/{id}', [\App\Http\Controllers\NewsController::class, 'one_news'])->name('one_news');
+
+# Роут в контролллер (страница авторизации)
+Route::get('/auth', [\App\Http\Controllers\System\SystemController::class, 'auth'])->name('auth');
+
+/*
 #Add route
 Route::get('/about', function () {
     return view('about');
@@ -38,3 +48,5 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+ 
+ */

@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    
-    
-    
+
         public function index(){
         return view('news_categories');
     }
@@ -17,9 +15,14 @@ class NewsController extends Controller
         return view('add_news');
     }
     
-    # Метод с передачей переменной в представление
+        # Метод с передачей переменной в представление
         public function categories($id){                    
         return view('news')->with('categories',"$id");
+    }
+    
+        # Метод с передачей переменной в представление
+        public function one_news($id){                    
+        return view('one_news')->with('number',"$id");
     }
 }
 
