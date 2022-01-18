@@ -1,5 +1,12 @@
 
 <!-- Отредактировал файл в шаблон blade -->
+@extends('main')
+
+@section('title')
+Новости
+@endsection
+
+@section('content')
 
 @if ($categories == "sport")
      <p>Вы выбрали новости спорта</p>
@@ -22,3 +29,5 @@
     <p><a href="{{ route('one_news', 8)}}">Лодки</a></p>
     </body>
 @endif
+
+ @endsection
