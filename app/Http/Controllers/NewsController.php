@@ -17,7 +17,8 @@ class NewsController extends Controller
     
         # Метод с передачей переменной в представление
         public function categories($id){                    
-        return view('news')->with('categories',"$id");
+        #return view('news')->with('categories',"$id");
+        return view('news', ['categories' => $id]);
     }
     
         # Метод с передачей переменной в представление
