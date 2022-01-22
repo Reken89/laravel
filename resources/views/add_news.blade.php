@@ -1,10 +1,11 @@
-<!DOCTYPE HTML>
-<html>
- <head>
-  <meta charset="utf-8">
-  <title>Категории</title>
- </head>
- <body>
+
+@extends('main')
+
+@section('title')
+Новости
+@endsection
+
+@section('content')
      <p>Страница добавления новостей</p>
      
      <form action="#" method="post">
@@ -24,4 +25,4 @@
            
        </form>
 
-</html>
+@endsection
