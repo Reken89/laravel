@@ -29,6 +29,9 @@ Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->nam
 # Роут в контролллер (страница добавления новостей)
 Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
 
+# Роут в контролллер (страница добавления новостей)
+Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'add_post'])->name('add_news_post');
+
 # Роут в контролллер (страница выбранной категории новостей)
 Route::get('/news/categories/{id}', [\App\Http\Controllers\NewsController::class, 'categories'])->name('news');
 

@@ -8,7 +8,8 @@
 @section('content')
      <p>Страница добавления новостей</p>
      
-     <form action="#" method="post">
+     <form action="{{route('add_news_post')}}" method="post">
+         @csrf
                 <div class="form-group">
            
                    <div class="form-group">

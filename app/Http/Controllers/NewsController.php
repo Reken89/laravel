@@ -12,6 +12,16 @@ class NewsController extends Controller
     }
     
         public function add(){
+                     
+        return view('add_news');
+    }
+    
+            public function add_post(Request $request){
+            
+        $subject = $request->input('subject');
+        $message = $request->input('message');
+        return response()->redirectToRoute('add_news');
+        
         return view('add_news');
     }
     
