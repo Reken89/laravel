@@ -17,6 +17,7 @@ class NewsModelTest extends TestCase
     {
         $response = $this->get('/news/add');
 
+        # Проверяем шаблон, на содержание нужных слов или строк
         $response->assertStatus(200)
                 ->assertSeeText('Страница добавления');
     }

@@ -26,10 +26,10 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 # Роут в контролллер (страница выбора категорий новостей)
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');
 
-# Роут в контролллер (страница добавления новостей)
+# Роут в контролллер (страница добавления новостей) (Метод GET)
 Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
 
-# Роут в контролллер (страница добавления новостей)
+# Роут в контролллер (страница добавления новостей) (метод POST)
 Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'add_post'])->name('add_news_post');
 
 # Роут в контролллер (страница выбранной категории новостей)

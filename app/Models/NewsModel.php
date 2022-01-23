@@ -9,6 +9,7 @@ class NewsModel extends Model
 {
     use HasFactory;
     
+    # Массив, допустим что получен из БД
     private $news = [
         1 => [
             'title' => 'Sport',
@@ -22,7 +23,7 @@ class NewsModel extends Model
         ]
     ];
     
-    
+    # Метод для проверки, что массив содержит новости с ID равным 10
     public function GetByID(int $categoryid) {
         
         $return = [];
