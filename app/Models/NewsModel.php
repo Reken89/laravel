@@ -12,16 +12,26 @@ class NewsModel extends Model
     private $news = [
         1 => [
             'title' => 'Sport',
-            'description' => 'Text'
+            'description' => 'Text',
+            'id_category' => '10'
         ],
         2 => [
             'title' => 'Science',
-            'description' => 'Text'
+            'description' => 'Text',
+            'id_category' => '11'
         ]
     ];
     
-    public function update(){
+    
+    public function GetByID(int $categoryid) {
         
+        $return = [];
+        foreach ($this->news as $item){
+            if($item['id_category'] == $categoryid){
+                $return[] = $item;
+            }
+        }
+        return $return;
     }
     
 }
