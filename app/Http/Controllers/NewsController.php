@@ -12,6 +12,19 @@ class NewsController extends Controller
     }
     
         public function add(){
+                     
+        return view('add_news');
+    }
+    
+            # Метод для получения данных из POST
+            public function add_post(Request $request){
+            
+        $subject = $request->input('subject');
+        $message = $request->input('message');
+        
+        # Редирект
+        return response()->redirectToRoute('add_news');
+        
         return view('add_news');
     }
     
