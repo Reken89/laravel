@@ -11,6 +11,8 @@ class CreateNewsTable extends Migration
      *
      * @return void
      */
+    
+    # Создаем таблицу news
     public function up()
     {
         Schema::create('news', function (Blueprint $table) {
@@ -29,6 +31,8 @@ class CreateNewsTable extends Migration
      *
      * @return void
      */
+    
+    # Удаляем таблицу news
     public function down()
     {
         Schema::dropIfExists('news');
