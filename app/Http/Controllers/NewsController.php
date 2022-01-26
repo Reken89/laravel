@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\NewsModel;
 
 class NewsController extends Controller
 {
 
+        # Вносим изменения в метод
+        # Теперь метод будет получать информацию (массив) из Модели
         public function index(){
-        return view('news_categories');
+
+            $news = new NewsModel();
+
+        return view('news_categories', ['news' => $news->select_all()]);
+
     }
     
         public function add(){
@@ -29,7 +36,7 @@ class NewsController extends Controller
     }
     
         # Метод с передачей переменной в представление
-        public function categories($id){                    
+        public function categories($id){                        
         #return view('news')->with('categories',"$id");
         return view('news', ['categories' => $id]);
     }

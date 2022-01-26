@@ -23,23 +23,4 @@ class NewsSeeder extends Seeder
         ]);
     }
     
-    /*
-    private function getData(){
-        
-        #$faker = Faker\Factory::create(ru_RU);
-        
-        $data = [];
-        
-        for($a = 0; $a < 6; $a++){
-            $data[] = [
-                'news' => $this->faker->realText(rand(50, 100)),
-                'categories' => 'test',
-                'status' => 'OK',
-                'sources' => $this->faker->realText(rand(10, 12)),
-            ];
-        }
-        return $data;
-    }
-     
-     */
 }

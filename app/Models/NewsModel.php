@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class NewsModel extends Model
 {
@@ -33,6 +34,15 @@ class NewsModel extends Model
             }
         }
         return $return;
+    }
+    
+    # Метод для получения информации из БД
+    public function select_all(){
+        
+        $news = DB::select('SELECT * FROM news');
+        
+        return $news;
+        
     }
     
 }
