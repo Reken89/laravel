@@ -15,9 +15,15 @@ class NewsSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('news')->insert($this->getData());
+        DB::table('news')->insert([
+                'news' => 'Пример новости',
+                'categories' => 'test',
+                'status' => 'OK',
+                'sources' => 'Источник',
+        ]);
     }
     
+    /*
     private function getData(){
         
         #$faker = Faker\Factory::create(ru_RU);
@@ -34,4 +40,6 @@ class NewsSeeder extends Seeder
         }
         return $data;
     }
+     
+     */
 }
