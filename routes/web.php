@@ -29,8 +29,14 @@ Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->nam
 # Роут в контролллер (страница добавления новостей) (Метод GET)
 Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
 
-# Роут в контролллер (страница добавления новостей) (метод POST)
-Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'add_post'])->name('add_news_post');
+# Роут в контролллер (страница добавления новостей) (метод POST) ОБНОВЛЯЕМ НОВОСТЬ
+Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'update_post'])->name('update_news_post');
+
+# Роут в контролллер (страница добавления новостей) (метод POST) ДОБАВЛЯЕМ НОВОСТЬ
+Route::post('/news/add/news', [\App\Http\Controllers\NewsController::class, 'add_post'])->name('add_news_post');
+
+# Роут в контролллер (страница добавления новостей) (метод POST) УДАЛЯЕМ НОВОСТЬ
+Route::post('/news/add/delete', [\App\Http\Controllers\NewsController::class, 'delete'])->name('delete_news_post');
 
 # Роут в контролллер (страница выбранной категории новостей)
 Route::get('/news/categories/{id}', [\App\Http\Controllers\NewsController::class, 'categories'])->name('news');

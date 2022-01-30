@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\NewsModel;
+use App\Models\News;
 
 class NewsController extends Controller
 {
@@ -12,28 +13,77 @@ class NewsController extends Controller
         # Теперь метод будет получать информацию (массив) из Модели
         public function index(){
 
-            $news = new NewsModel();
+            #$news = new NewsModel();
+            $news = News::all();
 
-        return view('news_categories', ['news' => $news->select_all()]);
+        return view('news_categories', ['news' => $news]);
+        #return view('news_categories', ['news' => $news->select_all()]);
 
     }
     
+        # Выводим все новости в админке
         public function add(){
                      
-        return view('add_news');
+        $news = News::all();
+            
+        return view('add_news', ['news' => $news]);    
+        
     }
     
-            # Метод для получения данных из POST
-            public function add_post(Request $request){
+                    # Удаляем определенную новость
+                    public function delete(Request $request){
             
-        $subject = $request->input('subject');
-        $message = $request->input('message');
+                        $id = $request->input('id');
+                        $news = News::destroy($id);
         
-        # Редирект
-        return response()->redirectToRoute('add_news');
-        
-        return view('add_news');
+                    # Редирект
+                    return response()->redirectToRoute('add_news');
+
+                    return view('add_news');
     }
+    
+                # Добавляем новую новость
+                public function add_post(Request $request){
+            
+                    $news = new News();
+                    $news->fill([
+                        'news' => $request->input('message'),
+                        'categories' => $request->input('categories'),
+                        'status' => 'OK',
+                        'sources' => 'Источник',
+                        'category_id' => $request->input('category_id'),
+                    ]);
+  
+                    $news->save();
+
+                    # Редирект
+                    return response()->redirectToRoute('add_news');
+
+                    return view('add_news');
+    }
+    
+    
+    
+            # Обновляем уже существующую новость
+            public function update_post(Request $request){
+            
+                
+                $id = $request->input('id');
+
+                        
+                $news = News::find($id);
+
+                $news->news = $request->input('message');
+                $news->categories = $request->input('categories');
+                
+                $news->save();
+
+                # Редирект
+                return response()->redirectToRoute('add_news');
+
+                return view('add_news');
+
+            }
     
         # Метод с передачей переменной в представление
         public function categories($id){                        
