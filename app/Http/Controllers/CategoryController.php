@@ -38,6 +38,8 @@ class CategoryController extends Controller
             
                   public function add_post(CategoriesSaveRequest $request){
             
+                      \App::setLocale('ru');
+                      
                     $categories = new Categories();
                     $categories->fill([
                         'name' => $request->input('name')
