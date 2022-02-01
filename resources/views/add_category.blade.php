@@ -11,7 +11,7 @@
      <!-- Выводим все категории из таблицы categories -->
      <!-- При нажатии на изменить, редактируем категорию -->
      @foreach($category as $info)
-     <form action="{{route('update_news_post')}}" method="post">
+     <form action="{{route('update_category_post')}}" method="post">
          @csrf
          
                 <div class="form-group">
@@ -27,7 +27,7 @@
        </form>
      
      <!-- При нажатии на удалить, удаляем категорию -->
-     <form action="{{route('delete_news_post')}}" method="post">
+     <form action="{{route('delete_category_post')}}" method="post">
          @csrf
          <input type="hidden" name="id" value="{{$info->id}}">
           <button type="submit" name="action" values="update" >Удалить</button>
@@ -35,7 +35,7 @@
 @endforeach
 
 <!-- При нажатии на добавить, добавляем новость -->
-<form action="{{route('add_news_post')}}" method="post">
+<form action="{{route('add_category_post')}}" method="post">
              @csrf
          
                <div class="form-group">

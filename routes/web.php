@@ -51,6 +51,15 @@ Route::get('/auth', [\App\Http\Controllers\System\SystemController::class, 'auth
 # Роут в контролллер (страница добавления категорий) (Метод GET)
 Route::get('/category/add', [\App\Http\Controllers\CategoryController::class, 'add'])->name('add_category');
 
+# Роут в контролллер (страница добавления категорий) (метод POST) ОБНОВЛЯЕМ НОВОСТЬ
+Route::post('/category/add', [\App\Http\Controllers\CategoryController::class, 'update_post'])->name('update_category_post');
+
+# Роут в контролллер (страница добавления категории) (метод POST) ДОБАВЛЯЕМ КАТЕГОРИЮ
+Route::post('/category/add/category', [\App\Http\Controllers\CategoryController::class, 'add_post'])->name('add_category_post');
+
+# Роут в контролллер (страница добавления категорий) (метод POST) УДАЛЯЕМ КАТЕГОРИЮ
+Route::post('/category/add/delete', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('delete_category_post');
+
 /*
 #Add route
 Route::get('/about', function () {
