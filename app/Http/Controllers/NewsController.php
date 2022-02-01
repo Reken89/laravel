@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\NewsModel;
 use App\Models\News;
+use App\Http\Requests\NewsSaveRequest;
 
 class NewsController extends Controller
 {
@@ -43,7 +44,7 @@ class NewsController extends Controller
     }
     
                 # Добавляем новую новость
-                public function add_post(Request $request){
+                public function add_post(NewsSaveRequest $request){
             
                     $news = new News();
                     $news->fill([

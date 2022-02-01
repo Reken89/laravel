@@ -8,6 +8,16 @@
 @section('content')
      <p>Страница добавления новостей</p>
      
+          @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+     
      <!-- Выводим все новости из таблицы news -->
      <!-- При нажатии на изменить, редактируем новость -->
      @foreach($news as $info)
