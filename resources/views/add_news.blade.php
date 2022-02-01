@@ -62,6 +62,6 @@
                <label for="subject">Номер категории новостей</label>
                <input type="text" name="category_id" placeholder="Введите номер категории" id="subject" class="form-control">
 
-           <button type="submit" name="action" class="btn btn-success">Добавить</button>
+           <input class="btn btn-success" type="submit" value="Добавить">
 </form>
 @endsection
