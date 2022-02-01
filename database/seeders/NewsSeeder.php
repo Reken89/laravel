@@ -16,10 +16,11 @@ class NewsSeeder extends Seeder
     {
         //
         DB::table('news')->insert([
-                'news' => 'Пример новости',
+                'news' => 'Пример новости 3',
                 'categories' => 'test',
                 'status' => 'OK',
                 'sources' => 'Источник',
+                'category_id' => 1
         ]);
     }
     

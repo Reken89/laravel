@@ -8,22 +8,50 @@
 @section('content')
      <p>Страница добавления новостей</p>
      
-     <form action="{{route('add_news_post')}}" method="post">
+     <!-- Выводим все новости из таблицы news -->
+     <!-- При нажатии на изменить, редактируем новость -->
+     @foreach($news as $info)
+     <form action="{{route('update_news_post')}}" method="post">
          @csrf
+         
                 <div class="form-group">
+                
+                    <input type="hidden" name="id" value="{{$info->id}}">
+                    
+               <label for="subject">Категория</label>
+               <input type="text" name="categories" value="{{$info->categories}}" id="subject" class="form-control">
+ 
+               <label for="message">Содержание</label>
+               <textarea name="message" id="message" class="form-control">{{$info->news}}</textarea>
+
+           <button type="submit" name="action" values="update" >Изменить</button>
            
-                   <div class="form-group">
-               <label for="subject">Тема сообщения</label>
-               <input type="text" name="subject" placeholder="Тема сообщения" id="subject" class="form-control">
-               </div>
-           
-                   <div class="form-group">
-               <label for="message">Сообщение</label>
-               <textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
-               </div>
-           
-           <button type="submit" class="btn btn-success">Отправить</button>
            
        </form>
+     
+     <!-- При нажатии на удалить, удаляем новость -->
+     <form action="{{route('delete_news_post')}}" method="post">
+         @csrf
+         <input type="hidden" name="id" value="{{$info->id}}">
+          <button type="submit" name="action" values="update" >Удалить</button>
+     </form>
+@endforeach
 
+<!-- При нажатии на добавить, добавляем новость -->
+<form action="{{route('add_news_post')}}" method="post">
+             @csrf
+         
+               <div class="form-group">
+ 
+               <label for="subject">Категория</label>
+               <input type="text" name="categories" placeholder="Категория" id="subject" class="form-control">
+ 
+               <label for="message">Содержание</label>
+               <textarea name="message" id="message" placeholder="Категория" class="form-control"></textarea>
+               
+               <label for="subject">Номер категории новостей</label>
+               <input type="text" name="category_id" placeholder="Введите номер категории" id="subject" class="form-control">
+
+           <button type="submit" name="action" class="btn btn-success">Добавить</button>
+</form>
 @endsection
