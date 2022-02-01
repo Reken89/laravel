@@ -8,6 +8,16 @@
 @section('content')
      <p>Страница добавления категорий</p>
      
+     @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+     
      <!-- Выводим все категории из таблицы categories -->
      <!-- При нажатии на изменить, редактируем категорию -->
      @foreach($category as $info)
