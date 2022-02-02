@@ -32,6 +32,9 @@ Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->n
 # Роут в контролллер (роут для выбора локализации) (Метод POST)
 Route::post('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
 
+# Роут в контролллер (роут для выбора локализации) (Метод GET)
+Route::get('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
+
 # Роут в контролллер (страница добавления новостей) (метод POST) ОБНОВЛЯЕМ НОВОСТЬ
 Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'update_post'])->name('update_news_post');
 
