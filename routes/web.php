@@ -29,6 +29,9 @@ Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->nam
 # Роут в контролллер (страница добавления новостей) (Метод GET)
 Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
 
+# Роут в контролллер (страница добавления новостей) (Метод GET)
+Route::post('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
+
 # Роут в контролллер (страница добавления новостей) (метод POST) ОБНОВЛЯЕМ НОВОСТЬ
 Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'update_post'])->name('update_news_post');
 

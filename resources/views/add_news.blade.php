@@ -2,11 +2,31 @@
 @extends('main')
 
 @section('title')
+
 Новости
+
+
 @endsection
 
 @section('content')
      <p>Страница добавления новостей</p>
+     
+      <!-- Кнопки выбора локализации -->
+     <p>Использовать локаль</p>
+     <p>{{$locale}}</p>
+     
+     <form action="{{route('locale')}}" method="post">
+         @csrf
+         <input type="hidden" name="locale" value="en">
+         <button type="submit" name="action" values="update" >ENG</button>
+     </form>
+     
+          <form action="{{route('locale')}}" method="post">
+         @csrf
+         <input type="hidden" name="locale" value="ru">
+         <button type="submit" name="action" values="update" >RU</button>
+     </form>
+     
      
      <!-- Выводим ошибки валидации -->
           @if ($errors->any())

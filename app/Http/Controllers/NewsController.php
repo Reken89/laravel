@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\NewsModel;
 use App\Models\News;
 use App\Http\Requests\NewsSaveRequest;
+use Illuminate\Support\Facades\App;
 
 class NewsController extends Controller
 {
@@ -23,11 +24,23 @@ class NewsController extends Controller
     }
     
         # Выводим все новости в админке
-        public function add(){
+        public function add(Request $request){
                      
         $news = News::all();
+        
+        # Если значение пустое то используем по умолчанию русскую локальзацию
+        if (empty($request->input('locale'))) {
+            \App::setLocale('ru');
+            $locale = __('labels.test');
             
-        return view('add_news', ['news' => $news]);    
+        # Если значение не пустое, тогда используем локализацию в зависимости от выбора пользователя    
+        } else {
+            $a = $request->input('locale');
+            \App::setLocale($a);            
+            $locale = __('labels.test');
+        }
+            
+        return view('add_news', ['news' => $news, 'locale' => $locale]);    
         
     }
     

@@ -11,6 +11,7 @@ class CategoryController extends Controller
         public function add(){
                      
         $news = Categories::all();
+        
             
         return view('add_category', ['category' => $news]);    
         
