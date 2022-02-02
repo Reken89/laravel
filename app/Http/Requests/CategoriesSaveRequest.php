@@ -25,6 +25,8 @@ class CategoriesSaveRequest extends FormRequest
      *
      * @return array
      */
+    
+    # Проверка валидации формы Категорий
     public function rules()
     {
         return [

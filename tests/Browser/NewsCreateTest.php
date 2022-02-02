@@ -13,6 +13,8 @@ class NewsCreateTest extends DuskTestCase
      *
      * @return void
      */
+    
+    # Тест для формы Добавления новостей
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
@@ -20,7 +22,11 @@ class NewsCreateTest extends DuskTestCase
                     ->assertSee('Страница добавления новостей')
                     ->type('categories','')
                     ->press('Добавить')
-                    ->assertSee('Поле categories обязательно для заполнения');
+                    ->assertSee('Поле categories обязательно для заполнения')
+                    ->type('message','')
+                    ->press('Добавить')
+                    ->assertSee('Поле message обязательно для заполнения');
+
         });
     }
 }

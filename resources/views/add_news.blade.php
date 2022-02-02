@@ -8,6 +8,7 @@
 @section('content')
      <p>Страница добавления новостей</p>
      
+     <!-- Выводим ошибки валидации -->
           @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

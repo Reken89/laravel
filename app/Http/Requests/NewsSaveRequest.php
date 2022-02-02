@@ -24,6 +24,8 @@ class NewsSaveRequest extends FormRequest
      *
      * @return array
      */
+    
+    # Проверка валидации для формы Новостей
     public function rules()
     {
         return [
