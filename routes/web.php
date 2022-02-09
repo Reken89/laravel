@@ -29,6 +29,12 @@ Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->nam
 # Роут в контролллер (страница добавления новостей) (Метод GET)
 Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
 
+# Роут в контролллер (роут для выбора локализации) (Метод POST)
+Route::post('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
+
+# Роут в контролллер (роут для выбора локализации) (Метод GET)
+Route::get('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
+
 # Роут в контролллер (страница добавления новостей) (метод POST) ОБНОВЛЯЕМ НОВОСТЬ
 Route::post('/news/add', [\App\Http\Controllers\NewsController::class, 'update_post'])->name('update_news_post');
 
@@ -46,6 +52,19 @@ Route::get('/news/categories/one_news/{id}', [\App\Http\Controllers\NewsControll
 
 # Роут в контролллер (страница авторизации)
 Route::get('/auth', [\App\Http\Controllers\System\SystemController::class, 'auth'])->name('auth');
+
+
+# Роут в контролллер (страница добавления категорий) (Метод GET)
+Route::get('/category/add', [\App\Http\Controllers\CategoryController::class, 'add'])->name('add_category');
+
+# Роут в контролллер (страница добавления категорий) (метод POST) ОБНОВЛЯЕМ НОВОСТЬ
+Route::post('/category/add', [\App\Http\Controllers\CategoryController::class, 'update_post'])->name('update_category_post');
+
+# Роут в контролллер (страница добавления категории) (метод POST) ДОБАВЛЯЕМ КАТЕГОРИЮ
+Route::post('/category/add/category', [\App\Http\Controllers\CategoryController::class, 'add_post'])->name('add_category_post');
+
+# Роут в контролллер (страница добавления категорий) (метод POST) УДАЛЯЕМ КАТЕГОРИЮ
+Route::post('/category/add/delete', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('delete_category_post');
 
 /*
 #Add route

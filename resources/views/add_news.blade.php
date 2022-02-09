@@ -2,11 +2,42 @@
 @extends('main')
 
 @section('title')
+
 Новости
+
+
 @endsection
 
 @section('content')
      <p>Страница добавления новостей</p>
+     
+      <!-- Кнопки выбора локализации -->
+     <p>Использовать локаль</p>
+     <p>{{$locale}}</p>
+     
+     <form action="{{route('locale')}}" method="post">
+         @csrf
+         <input type="hidden" name="locale" value="en">
+         <button type="submit" name="action" values="update" >ENG</button>
+     </form>
+     
+          <form action="{{route('locale')}}" method="post">
+         @csrf
+         <input type="hidden" name="locale" value="ru">
+         <button type="submit" name="action" values="update" >RU</button>
+     </form>
+     
+     
+     <!-- Выводим ошибки валидации -->
+          @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
      
      <!-- Выводим все новости из таблицы news -->
      <!-- При нажатии на изменить, редактируем новость -->
@@ -52,6 +83,6 @@
                <label for="subject">Номер категории новостей</label>
                <input type="text" name="category_id" placeholder="Введите номер категории" id="subject" class="form-control">
 
-           <button type="submit" name="action" class="btn btn-success">Добавить</button>
+           <input class="btn btn-success" type="submit" value="Добавить">
 </form>
 @endsection
