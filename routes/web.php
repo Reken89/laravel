@@ -27,7 +27,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');
 
 # Роут в контролллер (страница добавления новостей) (Метод GET)
-Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
+Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news')->middleware('auth');
 
 # Роут в контролллер (роут для выбора локализации) (Метод POST)
 Route::post('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
@@ -78,3 +78,7 @@ Route::get('/contact', function () {
 });
  
  */
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
