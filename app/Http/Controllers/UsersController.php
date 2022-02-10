@@ -7,8 +7,10 @@ use App\Models\Users;
 
 class UsersController extends Controller
 {
+    # Выводим список всех пользователей
     public function add(){
         
+        # Записываем в сессию админа
         $user = \Illuminate\Support\Facades\Auth::user();       
         $_SESSION['role'] = $user['role'];
         
@@ -21,6 +23,7 @@ class UsersController extends Controller
     }
     
     
+    # Редактируем информацию о пользователе
     public function update_post(Request $request){
         
                 $id = $request->input('id');
@@ -35,6 +38,7 @@ class UsersController extends Controller
                     
                     $users->name = $request->post('name');
                     $users->email = $request->post('email');
+                    $users->role = $request->post('role');
                     if(!empty($password)) {
                        $users->password = \Illuminate\Support\Facades\Hash::make($password);
                     }
@@ -53,6 +57,7 @@ class UsersController extends Controller
     }
     
     
+    # Удаляем пользователя
     public function delete(Request $request){
         
                         $id = $request->input('id');
@@ -64,4 +69,27 @@ class UsersController extends Controller
                     return view('users');
         
     }
+    
+    # Добавляем пользователя
+    public function add_post(Request $request){
+        
+                    $password = $request->post('password');
+        
+                    $users = new Users();
+                    
+                    $users->name = $request->post('name');
+                    $users->email = $request->post('email');
+                    $users->role = $request->post('role');
+                    $users->password = \Illuminate\Support\Facades\Hash::make($password);
+
+  
+                    $users->save();
+
+                    # Редирект
+                    return response()->redirectToRoute('users');
+
+                    return view('users');
+        
+    }
+    
 }

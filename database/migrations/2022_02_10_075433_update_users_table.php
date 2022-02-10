@@ -13,7 +13,7 @@ class UpdateUsersTable extends Migration
      */
     public function up()
     {
-                        # Редактируем таблицу users
+                        # Редактируем таблицу users, добавляем столбик РОЛЬ
                         Schema::table('users', function (Blueprint $table) {
 
                             $table->string('role', 100)

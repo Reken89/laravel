@@ -70,12 +70,19 @@ Route::post('/category/add/delete', [\App\Http\Controllers\CategoryController::c
 
 
 
-# Роут на страницу с пользователями
+# Роуты на страницу с пользователями
+
+# Роут для таблицы с пользователями
 Route::get('/users', [\App\Http\Controllers\UsersController::class, 'add'])->name('users')->middleware('auth');
 
+# Роут для обновления информации о пользователях
 Route::post('/users', [\App\Http\Controllers\UsersController::class, 'update_post'])->name('update_users')->middleware('auth');
 
+# Роут для удаления пользователя
 Route::post('/users/delete', [\App\Http\Controllers\UsersController::class, 'delete'])->name('delete_users')->middleware('auth');
+
+# Роут для добавления пользователя
+Route::post('/users/add', [\App\Http\Controllers\UsersController::class, 'add_post'])->name('add_users')->middleware('auth');
 
 
 /*
@@ -92,6 +99,7 @@ Route::get('/contact', function () {
  */
 
 Auth::routes(['register' => false]);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
