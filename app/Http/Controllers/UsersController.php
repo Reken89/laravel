@@ -9,7 +9,12 @@ class UsersController extends Controller
 {
     public function add(){
         
+        $user = \Illuminate\Support\Facades\Auth::user();       
+        $_SESSION['role'] = $user['role'];
+        
         $users = Users::all();
+        
+
    
         return view('users', ['users' => $users]); 
         
@@ -48,7 +53,15 @@ class UsersController extends Controller
     }
     
     
-    public function delete(){
+    public function delete(Request $request){
+        
+                        $id = $request->input('id');
+                        $users = Users::destroy($id);
+        
+                    # Редирект
+                    return response()->redirectToRoute('users');
+
+                    return view('users');
         
     }
 }

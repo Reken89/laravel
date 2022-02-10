@@ -20,6 +20,10 @@
      
      <!-- Выводим всех пользователей -->
      <!-- При нажатии на изменить, редактируем пользователя -->
+     
+     
+    @if ($_SESSION['role'] == 'admin')
+     
      @foreach($users as $info)
      <form action="{{route('update_users')}}" method="post">
          @csrf
@@ -52,5 +56,7 @@
           <button type="submit" name="action" values="update" >Удалить</button>
      </form>
 @endforeach
+
+@endif
 
 @endsection
