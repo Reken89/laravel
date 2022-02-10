@@ -66,6 +66,18 @@ Route::post('/category/add/category', [\App\Http\Controllers\CategoryController:
 # Роут в контролллер (страница добавления категорий) (метод POST) УДАЛЯЕМ КАТЕГОРИЮ
 Route::post('/category/add/delete', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('delete_category_post');
 
+
+
+
+
+# Роут на страницу с пользователями
+Route::get('/users', [\App\Http\Controllers\UsersController::class, 'add'])->name('users')->middleware('auth');
+
+Route::post('/users', [\App\Http\Controllers\UsersController::class, 'update_post'])->name('update_users')->middleware('auth');
+
+Route::post('/users/delete', [\App\Http\Controllers\UsersController::class, 'delete'])->name('delete_users')->middleware('auth');
+
+
 /*
 #Add route
 Route::get('/about', function () {
