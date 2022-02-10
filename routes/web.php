@@ -103,4 +103,8 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::match(['get', 'post'], '/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'update'])->name('update')->middleware('auth');
+#Route::match(['get', 'post'], '/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'update'])->name('update')->middleware('auth');
+
+Route::get('/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'show'])->name('show')->middleware('auth');
+
+Route::post('/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'remaster'])->name('remaster')->middleware('auth');

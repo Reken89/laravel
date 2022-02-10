@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('update')}}" method="post">
+            <form action="{{route('remaster')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label>Имя</label>
