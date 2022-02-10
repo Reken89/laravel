@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Http\Requests\UsersSaveRequest;
 
 class UsersController extends Controller
 {
@@ -24,7 +25,7 @@ class UsersController extends Controller
     
     
     # Редактируем информацию о пользователе
-    public function update_post(Request $request){
+    public function update_post(UsersSaveRequest $request){
         
                 $id = $request->input('id');
                 
@@ -71,7 +72,7 @@ class UsersController extends Controller
     }
     
     # Добавляем пользователя
-    public function add_post(Request $request){
+    public function add_post(UsersSaveRequest $request){
         
                     $password = $request->post('password');
         
