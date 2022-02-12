@@ -27,7 +27,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('categories');
 
 # Роут в контролллер (страница добавления новостей) (Метод GET)
-Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news');
+Route::get('/news/add', [\App\Http\Controllers\NewsController::class, 'add'])->name('add_news')->middleware('auth');
 
 # Роут в контролллер (роут для выбора локализации) (Метод POST)
 Route::post('/news/locale', [\App\Http\Controllers\NewsController::class, 'add'])->name('locale');
@@ -66,6 +66,25 @@ Route::post('/category/add/category', [\App\Http\Controllers\CategoryController:
 # Роут в контролллер (страница добавления категорий) (метод POST) УДАЛЯЕМ КАТЕГОРИЮ
 Route::post('/category/add/delete', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('delete_category_post');
 
+
+
+
+
+# Роуты на страницу с пользователями
+
+# Роут для таблицы с пользователями
+Route::get('/users', [\App\Http\Controllers\UsersController::class, 'add'])->name('users')->middleware('auth');
+
+# Роут для обновления информации о пользователях
+Route::post('/users', [\App\Http\Controllers\UsersController::class, 'update_post'])->name('update_users')->middleware('auth');
+
+# Роут для удаления пользователя
+Route::post('/users/delete', [\App\Http\Controllers\UsersController::class, 'delete'])->name('delete_users')->middleware('auth');
+
+# Роут для добавления пользователя
+Route::post('/users/add', [\App\Http\Controllers\UsersController::class, 'add_post'])->name('add_users')->middleware('auth');
+
+
 /*
 #Add route
 Route::get('/about', function () {
@@ -78,3 +97,14 @@ Route::get('/contact', function () {
 });
  
  */
+
+Auth::routes(['register' => false]);
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+#Route::match(['get', 'post'], '/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'update'])->name('update')->middleware('auth');
+
+Route::get('/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'show'])->name('show')->middleware('auth');
+
+Route::post('/news/profile', [\App\Http\Controllers\System\ProfileController::class, 'remaster'])->name('remaster')->middleware('auth');
