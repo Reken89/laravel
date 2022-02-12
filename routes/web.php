@@ -90,7 +90,9 @@ Route::post('/users/add', [\App\Http\Controllers\UsersController::class, 'add_po
 # Роут для парсера
 Route::get('/parser', [\App\Http\Controllers\ParserController::class, 'index'])->name('parser');
 
-
+# Роут для ВК
+Route::get('/loginvk', [\App\Http\Controllers\VkController::class, 'loginvk'])->name('loginvk');
+Route::get('/responsevk', [\App\Http\Controllers\VkController::class, 'responsevk'])->name('responsevk');
 
 
 /*
