@@ -29,6 +29,7 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        //
+                 Schema::dropColumns('users', ['role']);
+        Schema::dropIfExists('role');
     }
 }

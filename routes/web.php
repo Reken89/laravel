@@ -85,6 +85,16 @@ Route::post('/users/delete', [\App\Http\Controllers\UsersController::class, 'del
 Route::post('/users/add', [\App\Http\Controllers\UsersController::class, 'add_post'])->name('add_users')->middleware('auth');
 
 
+
+
+# Роут для парсера
+Route::get('/parser', [\App\Http\Controllers\ParserController::class, 'index'])->name('parser');
+
+# Роут для ВК
+Route::get('/loginvk', [\App\Http\Controllers\VkController::class, 'loginvk'])->name('loginvk');
+Route::get('/responsevk', [\App\Http\Controllers\VkController::class, 'responsevk'])->name('responsevk');
+
+
 /*
 #Add route
 Route::get('/about', function () {
@@ -98,7 +108,9 @@ Route::get('/contact', function () {
  
  */
 
+
 Auth::routes(['register' => false]);
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
